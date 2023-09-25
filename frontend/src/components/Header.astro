@@ -1,0 +1,48 @@
+---
+import { AuthDropdown } from '@/components/react/AuthDropdown';
+import { getLangFromUrl, getTranslations } from '@/i18n/utils';
+import type { ui } from '@/i18n/ui';
+import Logo from './svg/Logo.astro';
+import Banner from './Banner.astro';
+import { CoinsIcon } from 'lucide-react';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations<(typeof ui)[typeof lang]>(lang, 'ui');
+const renderLogo = Astro.url.pathname !== '/';
+---
+
+<header>
+	<Banner />
+	<nav class="min-h-[58px] px-4 py-2 place-content-between flex">
+		<div class="flex place-items-center gap-3 flex-1">
+			{
+				renderLogo ? (
+					<a
+						href="/"
+						class="flex gap-2 place-items-center p-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
+					>
+						<Logo height={'30px'} width={'30px'} />
+						<span class="hidden md:inline-block">Spider</span>
+					</a>
+				) : null
+			}
+			<a
+				href="/about"
+				class="flex gap-2 place-items-center p-1 rounded hover:underline hover:text-blue-500"
+			>
+				About
+			</a>
+		</div>
+		<div class="flex place-items-center gap-6">
+			<!-- <a class="hover:text-blue-600 hover:underline" href="/">{t('nav.scrape')}</a> -->
+			<a
+				class="hover:text-blue-600 hover:underline flex gap-2 place-items-center"
+				href="/credits/new"
+			>
+				<CoinsIcon size={'1.35rem'} />
+				<span class="sr-only">{t('nav.credits')}</span>
+			</a>
+			<AuthDropdown client:only="react" />
+		</div>
+	</nav>
+</header>

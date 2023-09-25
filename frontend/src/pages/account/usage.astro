@@ -1,0 +1,61 @@
+---
+import '@/styles/globals.css';
+import { getLangFromUrl, getTranslations } from '@/i18n/utils';
+import Layout from '@/layouts/Layout.astro';
+import { UsageBalance } from '@/components/react/UsageBalance';
+import CreditsBalance from '@/components/react/CreditsBalance';
+import { StripePortalLink } from '@/components/react/StripePortalLink';
+import HardLimit from '@/components/HardLimit.astro';
+
+const lang = getLangFromUrl(Astro.url, 'usage');
+
+const t = getTranslations(lang, 'usage');
+
+export const prerender = true;
+---
+
+<Layout title={t('title')} description={t('description')}>
+	<div class="p-4 grid place-content-center py-16 gap-5">
+		<div>
+			<h1 class="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl">
+				{t('usage.limits')}
+			</h1>
+			<p class="leading-7 [&:not(:first-child)]:mt-6">{t('intro.description')}</p>
+		</div>
+		<div>
+			<h2
+				class="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+			>
+				{t('intro.header')}
+			</h2>
+
+			<UsageBalance client:only="react" className="text-base" />
+		</div>
+
+		<div>
+			<h3
+				class="mt-10 scroll-m-20 pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0"
+			>
+				Credits
+			</h3>
+
+			<CreditsBalance client:only="react" className="text-base" />
+		</div>
+
+		<HardLimit />
+
+		<div class="py-2">
+			<h4
+				class="scroll-m-20 pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0"
+			>
+				Manage your subscription
+			</h4>
+			<p class="leading-7">
+				Use the link to manage your subscription, change your default payment, and more
+			</p>
+		</div>
+		<div>
+			<StripePortalLink client:only="react" />
+		</div>
+	</div>
+</Layout>

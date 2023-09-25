@@ -1,0 +1,28 @@
+---
+import '@/styles/globals.css';
+import Layout from '../../layouts/Layout.astro';
+import { Button, buttonVariants } from '@/components/ui/button';
+---
+
+<Layout title="Payment succeded" description="Payment success page.">
+	<div class="container mx-auto max-w-xl p-2 grid py-16">
+		<div>
+			<h1
+				class="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl text-center capitalize"
+			>
+				Thank you
+			</h1>
+			<p class="leading-7 [&:not(:first-child)]:mt-6">
+				The credits were added to your account, you can crawl your websites now!
+			</p>
+		</div>
+
+		<Button asChild>
+			<a href="/credits/new" class={buttonVariants({ variant: 'outline' })}>Add More Credits</a>
+		</Button>
+
+		<Button asChild>
+			<a href="/" class={buttonVariants({ variant: 'default' })}>Home</a>
+		</Button>
+	</div>
+</Layout>

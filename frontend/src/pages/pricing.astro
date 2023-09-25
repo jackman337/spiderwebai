@@ -1,0 +1,29 @@
+---
+import { PricingTable } from '@/components/react/PricingTable';
+import '@/styles/globals.css';
+import { getLangFromUrl, getTranslations } from '../i18n/utils';
+import Layout from '../layouts/Layout.astro';
+
+const lang = getLangFromUrl(Astro.url, 'pricing');
+
+const t = getTranslations(lang, 'pricing');
+
+export const prerender = true;
+---
+
+<Layout title={t('title')} description={t('description')}>
+	<div class="p-2 grid place-content-center place-items-center py-16">
+		<h1 class="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl">{t('title')}</h1>
+		<p class="leading-7 [&:not(:first-child)]:mt-6">{t('description')}</p>
+
+		<h2
+			class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+		>
+			{t('intro.header')}
+		</h2>
+
+		<div class="py-6">
+			<PricingTable />
+		</div>
+	</div>
+</Layout>

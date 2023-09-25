@@ -1,0 +1,8 @@
+---
+import DiscountBanner from './DiscountBanner.astro';
+import { CookieKeys } from '@/lib/storage';
+
+const hideBanner = Astro.cookies.has(CookieKeys.FIRST_PURCHASE);
+---
+
+{hideBanner ? null : <DiscountBanner />}

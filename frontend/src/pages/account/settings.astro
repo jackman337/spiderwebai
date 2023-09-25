@@ -1,0 +1,16 @@
+---
+import '@/styles/globals.css';
+import { getLangFromUrl, getTranslations } from '@/i18n/utils';
+import Layout from '@/layouts/Layout.astro';
+import { SettingsForm } from '@/components/react/forms/settings-form';
+
+const lang = getLangFromUrl(Astro.url, 'settings');
+
+const t = getTranslations(lang, 'settings');
+
+export const prerender = true;
+---
+
+<Layout title={t('title')} description={t('description')}>
+	<SettingsForm url={Astro.url} client:only />
+</Layout>

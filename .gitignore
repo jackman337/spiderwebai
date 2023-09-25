@@ -1,0 +1,6 @@
+.DS_Store
+.env
+.env.prod
+rootkey.csv
+_invoices
+chrome-aws-lambda-master

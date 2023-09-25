@@ -1,0 +1,65 @@
+---
+import { authenticateSupabaseClientFromRequest } from '@/lib/supabase';
+import { SupabaseUserProfileService } from '@/service/supabase-user-profile.service';
+import { HardLimitForm } from './react/forms/hard-limit';
+import { getLangFromUrl, getTranslations } from '@/i18n/utils';
+import { formatMoney } from '@/lib/utils/format-money';
+import { LimitIncreaseForm } from './react/forms/limit-increase-form';
+
+const lang = getLangFromUrl(Astro.url, 'usage');
+
+const t = getTranslations(lang, 'usage');
+
+export const prerender = true;
+
+let hardLimit;
+let approvedLimit;
+
+try {
+	const supabase = await authenticateSupabaseClientFromRequest(Astro.cookies);
+	const profileService = supabase && (await new SupabaseUserProfileService(supabase));
+	const billingLimits = await profileService?.getFields(
+		'billing_limit,approved_usage',
+		undefined,
+		true
+	);
+
+	if (billingLimits && typeof billingLimits === 'object') {
+		hardLimit = billingLimits.billing_limit;
+		approvedLimit = billingLimits.approved_usage;
+	}
+} catch (e) {
+	console.error(e);
+}
+---
+
+<>
+	<div>
+		<h3
+			class="mt-10 scroll-m-20 pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0"
+		>
+			{t('approved.usage')}
+		</h3>
+		<p class="leading-7">
+			{t('approved.description')}
+			<LimitIncreaseForm client:load />
+		</p>
+	</div>
+
+	<p>{formatMoney('en', Number(approvedLimit || 50))}</p>
+</>
+
+<div>
+	<h3
+		class="mt-10 scroll-m-20 pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0"
+	>
+		{t('hard.limit')}
+	</h3>
+	<p class="leading-7">{t('hard.description')}</p>
+
+	<HardLimitForm
+		client:only="react"
+		hardLimit={Number(hardLimit || 0)}
+		approvedLimit={Number(approvedLimit || 0)}
+	/>
+</div>

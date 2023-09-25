@@ -1,0 +1,84 @@
+---
+import '@fontsource-variable/inter';
+import { Analytics } from '@vercel/analytics/react';
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+import { Toaster } from '@/components/ui/toaster';
+import { getLangFromUrl } from '@/i18n/utils';
+import { routeParseAbsolute } from '@/lib/utils/routing';
+
+const lang = getLangFromUrl(Astro.url);
+const twitterSite = import.meta.env.PUBLIC_TWITTER_HANDLE || 'spider-rust';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+// const gimage = routeParseAbsolute(
+//     `/api/og?title=${title}&pathName=${Astro.url.pathname}`
+//   )
+const gimage = routeParseAbsolute(`/img/ai-chat.png`);
+const companyName = 'spider';
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content={`@${twitterSite}`} />
+		<meta name="twitter:image" content={gimage} />
+		<meta name="twitter:creator" content={`${twitterSite}`} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={routeParseAbsolute(Astro.url.pathname, lang)} />
+		<meta property="og:description" content={description} />
+		{title ? <meta property="og:title" content={title} /> : null}
+		<meta property="og:image" content={gimage} />
+		<meta property="og:image:alt" content={description} />
+		<meta property="og:site_name" content={companyName} />
+		<meta content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="color-scheme" content="dark light" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	</head>
+	<body class="min-h-screen flex flex-col font-inter">
+		<Header />
+
+		<main class="container mx-auto flex flex-col flex-1">
+			<slot />
+		</main>
+
+		<Footer />
+
+		<Toaster client:only="react" />
+		<Analytics client:only="react" />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--aw-font-inter: 'Inter Variable';
+	}
+	html {
+		font-size: 16px;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	html .container {
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+</style>

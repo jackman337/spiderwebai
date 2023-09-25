@@ -1,0 +1,48 @@
+---
+import '@/styles/globals.css';
+import { getLangFromUrl, getTranslations } from '../i18n/utils';
+import Layout from '../layouts/Layout.astro';
+import Collecting from '@/components/svg/Collecting.astro';
+import AISearch from '@/components/svg/AISearch.astro';
+import NewsPaper from '@/components/svg/NewsPaper.astro';
+
+const lang = getLangFromUrl(Astro.url, 'about');
+
+const t = getTranslations(lang, 'about');
+
+export const prerender = true;
+---
+
+<Layout title={t('title')} description={t('description')}>
+	<div class="container mx-auto max-w-screen-xl md:max-w-screen-md px-2 py-16">
+		<div class="pb-4">
+			<h1 class="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl text-center">
+				{t('title')}
+			</h1>
+			<p class="leading-7 [&:not(:first-child)]:mt-6">{t('description')}</p>
+			<h2
+				class="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 text-center"
+			>
+				{t('intro.header')}
+			</h2>
+			<p class="leading-7">{t('intro.description')}</p>
+		</div>
+		<div class="py-6 space-y-4">
+			<div class="flex flex-col place-items-center">
+				<h3 class="scroll-m-20 text-2xl tracking-tight font-semibold">{t('subheader')}</h3>
+				<p class="leading-7">{t('subheader-details')}</p>
+				<Collecting />
+			</div>
+			<div class="flex flex-col place-items-center">
+				<h3 class="scroll-m-20 text-2xl tracking-tight font-semibold">{t('aiheader')}</h3>
+				<p class="leading-7">{t('aiheader-details')}</p>
+				<AISearch />
+			</div>
+			<div class="flex flex-col place-items-center">
+				<h3 class="scroll-m-20 text-2xl tracking-tight font-semibold">{t('webhooksheader')}</h3>
+				<p class="leading-7">{t('webhooksheader-details')}</p>
+				<NewsPaper />
+			</div>
+		</div>
+	</div>
+</Layout>

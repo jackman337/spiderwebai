@@ -1,0 +1,223 @@
+---
+import '@/styles/globals.css';
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout
+	title="Privacy"
+	description="Our privacy policy and how it plays a part in the data collected."
+>
+	<div class="gap-7 grid place-content-center place-items-center py-16 max-w-screen-xl mx-auto">
+		<h1 class="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl">Privacy Policy</h1>
+		<p class="leading-7 [&:not(:first-child)]:mt-6 text-lg">
+			Learn about how we take privacy with the Spider project.
+		</p>
+
+		<article
+			class="text-base prose transition-all prose-gray max-w-none prose-headings:relative prose-headings:scroll-mt-20 prose-headings:font-display prose-headings:font-bold"
+		>
+			<p>
+				<a href="https://spiderwebai.xyz" class="text-blue-600 hover:text-blue-400 underline"
+					>Spider</a
+				> offers a cutting-edge data scraping service with powerful AI capabilities. Our data
+				collecting platform is designed to help users maximize the benefits of data collection while
+				embracing the advancements in AI technology. With our innovative tools, we provide a
+				seamless and fast interactive experience. This privacy policy details Spider's approach to
+				product development, deployment, and usage, encompassing the Crawler, AI products, and
+				features.
+			</p>
+
+			<a href="#ai-development-at-spider" class="no-underline hover:underline font-bold text-xl"
+				><h2 id="ai-development-at-spider" class="py-2">AI Development at Spider</h2></a
+			>
+			<p>
+				Spider leverages a robust combination of proprietary code, open-source frameworks, and
+				synthetic datasets to train its cutting-edge products. To continuously improve our
+				offerings, Spider may utilize inputs from user-generated prompts and content, obtained from
+				trusted third-party providers. By harnessing this diverse data, Spider can deliver highly
+				precise and pertinent recommendations to our valued users. While the foundational data
+				crawling aspect of Spider is openly available on Github, the dashboard and AI components
+				remain closed source. Spider respects all robots.txt files declared on websites allowing
+				data to be extracted without harming the website.
+			</p>
+			<a href="#security-privacy-and-trust" class="no-underline hover:underline font-bold text-xl"
+				><h2 id="security-privacy-and-trust" class="py-2">Security, Privacy, and Trust</h2></a
+			>
+			<p>
+				At Spider, our utmost priority is the development and implementation of Crawlers, AI
+				technologies, and products that adhere to ethical, moral, and legal standards. We are
+				dedicated to creating a secure and respectful environment for all users. Safeguarding user
+				data and ensuring transparency in its usage are core principles we uphold. In line with this
+				commitment, we provide the following important disclosures when utilizing our AI-related
+				products:
+			</p>
+			<ul>
+				<li>
+					Spider ensures comprehensive disclosure of features that utilize third-party AI platforms.
+					To provide clarity, these integrations will be clearly indicated through distinct markers,
+					designations, explanatory notes that appear when hovering, references to the underlying
+					codebase, or any other suitable form of notification as determined by the system. Our
+					commitment to transparency aims to keep users informed about the involvement of
+					third-party AI platforms in our products.
+				</li>
+				<li>
+					We collect and use personal data as set forth in our <a
+						href="https://spiderwebai.xyz/privacy"
+						class="underline hover:text-blue-500">Privacy Policy</a
+					> which governs the collection and usage of personal data. If you choose to input personal
+					data into our AI products, please be aware that such information may be processed through
+					third-party AI providers. For any inquiries or concerns regarding data privacy, feel free
+					to reach out to us at <a
+						href="https://github.com/spider-rs/spiderwebai"
+						rel="noopener noreferrer"
+						class="underline hover:text-blue-400 text-blue-600">Spider Help Github</a
+					>. We are here to assist you.
+				</li>
+				<li>
+					Except for user-generated prompts and/or content as inputs, Spider does not use customer
+					data, including the code related to the use of Spider's deployment services, to train or
+					finetune any models used.
+				</li>
+				<li>
+					We periodically review and update our policies and procedures in an effort to comply with
+					applicable data protection regulations and industry standards.
+				</li>
+				<li>
+					We use reasonable measures designed to maintain the safety of users and avoid harm to
+					people and the environment. Spider's design and development process includes
+					considerations for ethical, security, and regulatory requirements with certain safeguards
+					to prevent and report misuse or abuse.
+				</li>
+			</ul>
+			<a
+				href="#third-party-service-providers"
+				class="no-underline hover:underline font-bold text-xl"
+				><h2 id="third-party-service-providers" class="py-2">Third-Party Service Providers</h2></a
+			>
+			<p>
+				In providing AI products and services, we leverage various third-party providers in the AI
+				space to enhance our services and capabilities, and will continue to do so for certain
+				product features.
+			</p>
+			<p>
+				This page will be updated from time to time with information about Spider's use of AI. The
+				current list of third-party AI providers integrated into Spider is as follows:
+			</p>
+			<ul class="list-disc px-6 py-1">
+				<li>
+					<a
+						href="https://console.anthropic.com/legal/terms"
+						class="text-blue-600 underline hover:text-blue-400">Anthropic</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy"
+						class="text-blue-600 underline hover:text-blue-400">Azure Cognitive Services</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://cohere.com/terms-of-use"
+						class="text-blue-600 underline hover:text-blue-400"
+						rel="noopener noreferrer">Cohere</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://elevenlabs.io/terms"
+						class="text-blue-600 underline hover:text-blue-400"
+						rel="noopener noreferrer">ElevenLabs</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://huggingface.co/terms-of-service"
+						class="text-blue-600 underline hover:text-blue-400"
+						rel="noopener noreferrer">Hugging Face</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://www.facebook.com/policies_center/"
+						class="text-blue-600 underline hover:text-blue-400"
+						rel="noopener noreferrer">Meta AI</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://openai.com/policies"
+						class="text-blue-600 underline hover:text-blue-400"
+						rel="noopener noreferrer">OpenAI</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://www.pinecone.io/terms"
+						class="text-blue-600 underline hover:text-blue-400"
+						rel="noopener noreferrer">Pinecone</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://replicate.com/terms"
+						class="text-blue-600 underline hover:text-blue-400"
+						rel="noopener noreferrer">Replicate</a
+					>
+				</li>
+			</ul>
+			<p>
+				We prioritize the safety of our users and take appropriate measures to avoid harm both to
+				individuals and the environment. Our design and development processes incorporate
+				considerations for ethical practices, security protocols, and regulatory requirements, along
+				with established safeguards to prevent and report any instances of misuse or abuse. We are
+				committed to maintaining a secure and respectful environment and upholding responsible
+				practices throughout our services.
+			</p>
+			<a href="#acceptable-use" class="no-underline hover:underline font-bold text-xl"
+				><h2 id="acceptable-use" class="py-2">Acceptable Use</h2></a
+			>
+			<p>
+				Spider's products are intended to provide helpful and respectful responses to user prompts
+				and queries while collecting data along the web. We don't allow the use of our Scraper or AI
+				tools, products and services for the following usages:
+			</p>
+			<ul class="py-1 list-disc font-semibold px-6">
+				<li>Denial of Service Attacks</li>
+				<li>Illegal activity</li>
+				<li>Inauthentic, deceptive, or impersonation behavior</li>
+				<li>
+					Any other use that would violate Spider's standard published policies, codes of conduct,
+					or terms of service.
+				</li>
+			</ul>
+			<p>
+				Any violation of this Spider AI Policy or any Spider policies or terms of service may result
+				in termination of use of services at Spider's sole discretion. We will review and update
+				this Spider AI Policy so that it remains relevant and effective. If you have feedback or
+				would like to report any concerns or issues related to the use of AI systems, please reach
+				out to <a href="mailto:jeffmendez19@gmail.com">jeffmendez19@gmail.com</a>.
+			</p>
+			<a href="#more-information" class="no-underline hover:underline font-bold text-xl"
+				><h2 id="more-information" class="py-2">More Information</h2></a
+			>
+			<p>
+				To learn more about Spider's integration of AI capabilities into products and features,
+				check out the following resources:
+			</p>
+			<ul class="py-1 font-semibold px-2 text-blue-500">
+				<li>
+					<a href="https://github.com/spider-rs" class="hover:text-blue-300">Spider-Rust</a>
+				</li>
+				<li>
+					<a href="/" class="hover:text-blue-300">Spider</a>
+				</li>
+				<li>
+					<a href="/" class="hover:text-blue-300">About</a>
+				</li>
+			</ul>
+		</article>
+	</div>
+</Layout>

@@ -1,0 +1,36 @@
+---
+import WebsiteForm from '@/components/react/forms/website-form';
+import WebsitesList from '@/components/react/website/WebsitesList';
+import type { home } from '@/i18n/ui';
+import Logo from '@/components/svg/Logo.astro';
+import { getLangFromUrl, getTranslations } from '@/i18n/utils';
+import Layout from '@/layouts/Layout.astro';
+import '@/styles/globals.css';
+
+const lang = getLangFromUrl(Astro.url, 'home');
+const t = getTranslations<(typeof home)[typeof lang]>(lang, 'home');
+
+export const prerender = true;
+---
+
+<Layout title={t('title')} description={t('description')}>
+	<div class="sr-only">
+		<h1>{t('intro.header')}</h1>
+		<p>{t('intro.details')}</p>
+	</div>
+
+	<div class="pt-16 flex flex-col place-items-center">
+		<div class="py-3">
+			<h2 class="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl capitalize sr-only">
+				{t('intro.subheader')}
+			</h2>
+		</div>
+		<div class="pb-6">
+			<div class="flex gap-2 place-items-center p-1">
+				<Logo height={'80px'} width={'80px'} />
+			</div>
+		</div>
+		<WebsiteForm client:load />
+		<WebsitesList client:only="react" />
+	</div>
+</Layout>

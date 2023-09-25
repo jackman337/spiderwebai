@@ -1,0 +1,28 @@
+---
+
+---
+
+<form class="global-search">
+	<label class="global-search__label">Global search</label>
+	<input class="global-search__input" type="text" placeholder="Search ..." />
+	<input class="global-search__submit" type="submit" />
+</form>
+
+<style>
+	.global-search__label,
+	.global-search__submit {
+		display: none;
+	}
+
+	.global-search__input {
+		--height: 1.5rem;
+		display: block;
+		border-radius: var(--height);
+		height: var(--height);
+		width: 100%;
+		border: 1px solid var(--color-divider);
+		font-size: calc(var(--height) * 0.75);
+		line-height: var(--height);
+		padding: calc(var(--height) / 1.5);
+	}
+</style>

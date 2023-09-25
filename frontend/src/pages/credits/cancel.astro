@@ -1,0 +1,32 @@
+---
+import '@/styles/globals.css';
+import Layout from '../../layouts/Layout.astro';
+import { Button } from '@/components/ui/button';
+---
+
+<Layout title="Payment cancelled" description="Payment canceling handling across your account.">
+	<div class="container mx-auto max-w-xl p-2 grid py-16">
+		<h1
+			class="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl text-center capitalize"
+		>
+			Oh no!
+		</h1>
+		<p>The payment was canceled...</p>
+		<h2
+			class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+		>
+			Contact Help
+		</h2>
+		<p class="text-sm py-3">
+			If you had major concerns about the pricing reach out to us on github with the link below.
+		</p>
+		<div class="py-4">
+			<a
+				href="https://github.com/spider-rs/spiderwebai/issues/new/choose"
+				target="_blank"
+				rel="noreferrer"
+				class="hover:text-blue-600 p-4 underline">Post Issue</a
+			>
+		</div>
+	</div>
+</Layout>

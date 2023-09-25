@@ -1,0 +1,17 @@
+---
+import { authenticateSupabaseClientFromRequest } from '@/lib/supabase';
+import { formatMoney } from '@/lib/utils/format-money';
+import { getUsageRecordSummaries } from '@/lib/utils/get-stripe-usage';
+
+const supabase = await authenticateSupabaseClientFromRequest(Astro.cookies);
+const usageRecordSummaries = supabase && (await getUsageRecordSummaries(supabase));
+const usageRecordSummary = usageRecordSummaries?.[0];
+---
+
+{
+	usageRecordSummary && (
+		<span class="py-2">
+			Current usage: {formatMoney('en', usageRecordSummary.total_usage / 100)}
+		</span>
+	)
+}

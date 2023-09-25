@@ -1,0 +1,30 @@
+---
+import '@/styles/globals.css';
+import Layout from '../../layouts/Layout.astro';
+import { CreditsForm } from '@/components/react/CreditsForm';
+import { PricingTable } from '@/components/react/PricingTable';
+
+export const prerender = true;
+---
+
+<Layout
+	title="Purchase Credits"
+	description="Add the amount of credits you want to purchase for scraping the internet."
+>
+	<div class="mx-auto max-w-xl px-2 grid py-16">
+		<h1
+			class="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl text-center capitalize"
+		>
+			Add credits
+		</h1>
+		<p class="leading-7 [&:not(:first-child)]:mt-6 text-center">
+			Add credits to start crawling any website, then pay per usage.
+		</p>
+
+		<div class="py-4">
+			<PricingTable />
+		</div>
+
+		<CreditsForm client:only="react" />
+	</div>
+</Layout>

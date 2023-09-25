@@ -1,0 +1,21 @@
+---
+import { GithubLink } from '@/components/react/marketing/OpenSourceLink';
+
+let res;
+let stars = 0;
+try {
+	res = await fetch(`http://api.github.com/repos/spider-rs/spider`, {
+		headers: {
+			Authorization: import.meta.env.GITHUB_TOKEN || undefined,
+		},
+	});
+
+	res = await res.json();
+
+	stars = res.stargazers_count;
+} catch (e) {
+	console.error(e);
+}
+---
+
+<GithubLink client:load stars={stars} />
