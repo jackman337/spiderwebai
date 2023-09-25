@@ -17,7 +17,7 @@ lambda_runtime = "0.8.2"
 openssl = { version = "0.10", features = ["vendored"] }
 serde = { version = "1.0.167", features = ["derive"] }
 serde_json = { version = "1.0.105" }
-spider = { version = "1.45.8", features = ["full_resources", "control", "time", "budget"] }
+spider = { version = "1.46.1", features = ["full_resources", "control", "time", "budget"] }
 postgrest = "1.0"
 dotenv = "0.15.0"
 supabase-storage = "0.1.1"
