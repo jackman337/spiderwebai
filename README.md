@@ -14,6 +14,10 @@ Spider meets AI = 🦄
 - Integration with [Stripe Checkout](https://stripe.com/docs/payments/checkout) and the [Stripe customer portal](https://stripe.com/docs/billing/subscriptions/customer-portal)
 - Automatic syncing of pricing plans and subscription statuses via [Stripe webhooks](https://stripe.com/docs/webhooks)
 
+## Demo
+
+![Dashboard example](https://user-images.githubusercontent.com/8095978/270475687-b7449430-e5fa-4ce9-ae70-81bc10180c16.png)
+
 ## Requirements
 
 1. [docker](https://docs.docker.com/engine/install/) - Supabase local builds
@@ -30,4 +34,3 @@ Follow the getting started instructions from the [frontend](./frontend/README.md
 1. `./dev.sh`
 
 ![Chat feature to perform task based on complete website data example](https://user-images.githubusercontent.com/8095978/270475633-afb2853d-2317-41ba-bcc9-af203d9065a5.png)
-![Dashboard example](https://user-images.githubusercontent.com/8095978/270475687-b7449430-e5fa-4ce9-ae70-81bc10180c16.png)
