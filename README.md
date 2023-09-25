@@ -2,6 +2,18 @@
 
 Spider meets AI = 🦄
 
+## Features
+
+- Super fast unstoppable web crawling and scraping with [Spider](https://docs.rs/spider/latest/spider/)
+- AI questions and answers to learn from crawled data with [OpenAI](https://openai.com/product)
+- Crawling websites via browser for javascript built pages [Chromiumoxide](https://github.com/mattsse/chromiumoxide)
+- Native proxy support and decentralization with [Reqwest](https://docs.rs/reqwest/latest/reqwest/) and [Flatbuffers](https://docs.rs/flatbuffers/latest/flatbuffers/)
+- Secure user management and authentication with [Supabase](https://supabase.io/docs/guides/auth)
+- Mighty data access & management tooling on top of PostgreSQL with [Supabase](https://supabase.io/docs/guides/database)
+- Realtime distributed updates with [Supabase](https://supabase.io/docs/guides/realtime)
+- Integration with [Stripe Checkout](https://stripe.com/docs/payments/checkout) and the [Stripe customer portal](https://stripe.com/docs/billing/subscriptions/customer-portal)
+- Automatic syncing of pricing plans and subscription statuses via [Stripe webhooks](https://stripe.com/docs/webhooks)
+
 ## Requirements
 
 1. [docker](https://docs.docker.com/engine/install/) - Supabase local builds
@@ -13,6 +25,7 @@ Install the supabase CLI locally. `npm i supabase -g`.
 ## Getting Started
 
 Copy `sample.env` to `.env` in each of the folders.
+Follow the getting started instructions from the [frontend](./frontend/README.md).
 
 1. `./dev.sh`
 
