@@ -1,3 +1,4 @@
+// auto-generated do not adjust
 export const crawlCategories = {
   sports: {
     ESPN: 'https://www.espn.com',
