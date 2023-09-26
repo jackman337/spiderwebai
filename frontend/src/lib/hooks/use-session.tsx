@@ -7,7 +7,7 @@ import { CookieKeys } from '@/lib/storage';
 import { toast } from '@/components/ui/use-toast';
 import { ToastAction } from '@radix-ui/react-toast';
 import { formatDuration } from 'date-fns';
-import { expireAuthCookies } from '../utils/cookies/expire-auth';
+import { expireAuthCookies } from '@/lib/utils/cookies/expire-auth';
 
 type SessionHookProps = { setOpen?: React.Dispatch<SetStateAction<boolean>> };
 

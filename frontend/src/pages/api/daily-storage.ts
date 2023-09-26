@@ -1,3 +1,4 @@
+import { resser } from '@/lib/server/responses';
 import { createSupabaseAdminClient } from '@/lib/supabase';
 import { reportUsageToStripe } from '@/lib/utils/stripe/report-usage';
 import type { APIRoute } from 'astro';
@@ -15,8 +16,7 @@ export const post: APIRoute = async ({ request }) => {
   const sharedKey = searchParams.get(import.meta.env.CRON_KEY);
 
   if (sharedKey !== import.meta.env.CRON_SECURITY) {
-    // silent fail treat as 404
-    return new Response('Not Found', { status: 404 });
+    return resser.notFound;
   }
 
   const supabase = createSupabaseAdminClient();
@@ -47,5 +47,5 @@ export const post: APIRoute = async ({ request }) => {
     }
   }
 
-  return new Response('Successfully ran all scheduled', { status: 200 });
+  return resser.ok;
 };

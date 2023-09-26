@@ -7,6 +7,7 @@ import { openai, type Docs, openAIConfig, OPENAI_MODEL_DEFAULT } from '@/lib/ope
 import { reportUsageToStripe } from '@/lib/utils/stripe/report-usage';
 import { rateLimit } from '@/lib/utils/rate-limit';
 import { CacheControl } from '@/lib/server/cache';
+import { resser } from '@/lib/server/responses';
 
 const limiter = rateLimit({
   interval: 60 * 1000, // 60 seconds
@@ -24,7 +25,7 @@ export const post: APIRoute = async ({ request, cookies }) => {
     } = (await supabase?.auth?.getUser()) ?? { data: { user: null } };
 
     if (!user) {
-      return new Response('Authentication required', { status: 401 });
+      return resser.auth;
     }
 
     const creditsData = await validateCredits(supabase, user?.id);
@@ -223,8 +224,6 @@ export const post: APIRoute = async ({ request, cookies }) => {
       return new StreamingTextResponse(new ReadableStream());
     }
   } catch {
-    return new Response('Rate limit exceeded', {
-      status: 429,
-    });
+    return resser.rate;
   }
 };

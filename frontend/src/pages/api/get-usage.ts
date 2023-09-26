@@ -1,3 +1,4 @@
+import { resser } from '@/lib/server/responses';
 import { CookieKeys } from '@/lib/storage';
 import { createSupabaseAdminClient, supabase } from '@/lib/supabase';
 import { getUsageRecordSummaries } from '@/lib/utils/get-stripe-usage';
@@ -12,7 +13,7 @@ export const get: APIRoute = async ({ request, cookies }) => {
 
   // make sure authorization or md5 is allowed TODO: md5
   if (!auth) {
-    return new Response('Authentication required', { status: 401 });
+    return resser.auth;
   }
 
   const {

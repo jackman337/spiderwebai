@@ -31,6 +31,6 @@ export const prerender = true;
 			</div>
 		</div>
 		<WebsiteForm client:load />
-		<WebsitesList client:only="react" />
+		<WebsitesList client:only="react" url={Astro.url} />
 	</div>
 </Layout>

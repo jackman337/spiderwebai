@@ -1,10 +1,10 @@
 import type { APIRoute } from 'astro';
 import type { Stripe } from 'stripe';
-import { getStripeClient } from '../../lib/stripe';
-import { createSupabaseAdminClient } from '../../lib/supabase';
+import { getStripeClient } from '@/lib/stripe';
+import { createSupabaseAdminClient } from '@/lib/supabase';
 // import { StripeSubscriptionService } from '../../service/stripe-subscription.service';
-import { SupabaseCreditsService } from '../../service/supabase-credits.service';
-import { SupabaseUserProfileService } from '../../service/supabase-user-profile.service';
+import { SupabaseCreditsService } from '@/service/supabase-credits.service';
+import { SupabaseUserProfileService } from '@/service/supabase-user-profile.service';
 
 /**
  * Stripe webhooks handler
@@ -38,10 +38,7 @@ export const post: APIRoute = async ({ request }) => {
  * 1. Increment credits
  * 2. start a subscription
  */
-async function handleChargeSucceeded(
-  event: Stripe.Event,
-  body: string,
-): Promise<Response> {
+async function handleChargeSucceeded(event: Stripe.Event, body: string): Promise<Response> {
   const customer = (event.data.object as any).customer;
   const supabase = createSupabaseAdminClient();
   const parsedBody = JSON.parse(body);

@@ -1,11 +1,12 @@
 import type { APIRoute } from 'astro';
-import { authenticateSupabaseClientFromRequest } from '../../lib/supabase';
+import { authenticateSupabaseClientFromRequest } from '@/lib/supabase';
 import { validateCredits } from '@/lib/utils/check-credits';
 import { crawlLambda } from '@/lib/utils/crawl-request';
 import { sendCrawlSQS } from '@/lib/utils/sqs-queue';
 import { rateLimit } from '@/lib/utils/rate-limit';
 import { CacheControl } from '@/lib/server/cache';
 import { promptGenerateWebsite } from '@/lib/chat/prompt-website';
+import { resser } from '@/lib/server/responses';
 
 const limiter = rateLimit({
   interval: 60 * 1000, // 60 seconds
@@ -29,13 +30,13 @@ export const post: APIRoute = async ({ request, cookies }) => {
     } = (await supabase?.auth?.getUser()) ?? { data: { user: null } };
 
     if (!user) {
-      return new Response('Authentication required', { status: 401 });
+      return resser.auth;
     }
 
     const { url, domain, proxy, headless, budget, query } = await request.json();
 
     if (!url) {
-      return new Response('URL not provided', { status: 400 });
+      return resser.urlRequired;
     }
 
     // check credits
@@ -57,9 +58,7 @@ export const post: APIRoute = async ({ request, cookies }) => {
     try {
       new URL(websiteUrl);
     } catch (e) {
-      return new Response('Could not get a valid domain.', {
-        status: 400,
-      });
+      return resser.urlRequired;
     }
 
     let response = await supabase
@@ -123,8 +122,6 @@ export const post: APIRoute = async ({ request, cookies }) => {
 
     return new Response(JSON.stringify(response), { status });
   } catch {
-    return new Response('Rate limit exceeded', {
-      status: 429,
-    });
+    return resser.rate;
   }
 };

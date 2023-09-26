@@ -7,12 +7,7 @@
 </div>
 
 <script is:inline>
-	if (
-		[
-			'https://github.com/',
-			'https://github.com'
-		].includes(document.referrer)
-	) {
+	if (['https://github.com/', 'https://github.com'].includes(document.referrer)) {
 		const banner = document.getElementById('gh-banner');
 		if (banner) {
 			banner.className = 'py-2 px-4 bg-pink-200 dark:bg-gray-800';

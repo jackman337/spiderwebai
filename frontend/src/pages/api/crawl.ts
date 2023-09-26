@@ -1,8 +1,9 @@
 import type { APIRoute } from 'astro';
-import { authenticateSupabaseClientFromRequest } from '../../lib/supabase';
+import { authenticateSupabaseClientFromRequest } from '@/lib/supabase';
 import { validateCredits } from '@/lib/utils/check-credits';
 import { crawlLambda } from '@/lib/utils/crawl-request';
 import { sendCrawlSQS } from '@/lib/utils/sqs-queue';
+import { resser } from '@/lib/server/responses';
 
 export const config = {
   runtime: 'edge',
@@ -18,13 +19,13 @@ export const post: APIRoute = async ({ request, cookies }) => {
   } = (await supabase?.auth?.getUser()) ?? { data: { user: null } };
 
   if (!user) {
-    return new Response('Authentication required', { status: 401 });
+    return resser.rate;
   }
 
   const { url, proxy, domain, headless, budget } = await request.json();
 
   if (!url) {
-    return new Response('URL not provided', { status: 400 });
+    return resser.urlRequired;
   }
 
   // check if credits exist or if they pass in their own API key later

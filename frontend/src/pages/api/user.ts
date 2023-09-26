@@ -2,8 +2,9 @@ import type { APIRoute } from 'astro';
 import {
   authenticateSupabaseClientFromRequest,
   createSupabaseAdminClient,
-} from '../../lib/supabase';
+} from '@/lib/supabase';
 import { rateLimit } from '@/lib/utils/rate-limit';
+import { resser } from '@/lib/server/responses';
 
 const limiter = rateLimit({
   interval: 60 * 1000, // 60 seconds
@@ -27,7 +28,7 @@ export const post: APIRoute = async ({ request, cookies }) => {
     } = (await supabase?.auth?.getUser()) ?? { data: { user: null } };
 
     if (!user) {
-      return new Response('Authentication required', { status: 401 });
+      return resser.auth;
     }
 
     const formData = await request.formData();
@@ -56,10 +57,8 @@ export const post: APIRoute = async ({ request, cookies }) => {
       }
     }
 
-    return new Response(null, { status: 201 });
+    return resser.unmodified;
   } catch {
-    return new Response('Rate limit exceeded', {
-      status: 429,
-    });
+    return resser.rate;
   }
 };

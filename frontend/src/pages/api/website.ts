@@ -2,8 +2,9 @@ import type { APIRoute } from 'astro';
 import {
   authenticateSupabaseClientFromRequest,
   createSupabaseAdminClient,
-} from '../../lib/supabase';
+} from '@/lib/supabase';
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { resser } from '@/lib/server/responses';
 
 export const config = {
   runtime: 'edge',
@@ -54,7 +55,7 @@ export const all: APIRoute = async ({ request, cookies }) => {
   } = (await supabase?.auth?.getUser()) ?? { data: { user: null } };
 
   if (!user) {
-    return new Response('Authentication required', { status: 401 });
+    return resser.auth;
   }
 
   const { id, domain } = await request.json();
@@ -70,7 +71,7 @@ export const all: APIRoute = async ({ request, cookies }) => {
       .eq('id', id);
 
     if (error) {
-      return new Response(null, { status: 500 });
+      return resser.error;
     } else {
       try {
         const storageBasePath = `${user.id}/${domain}`;
@@ -87,5 +88,5 @@ export const all: APIRoute = async ({ request, cookies }) => {
     }
   }
 
-  return new Response(null, { status: 201 });
+  return resser.unmodified;
 };

@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { createSupabaseAdminClient, supabase } from '@/lib/supabase';
 import { CookieKeys } from '@/lib/storage';
 import { reportUsageToStripe } from '@/lib/utils/stripe/report-usage';
+import { resser } from '@/lib/server/responses';
 
 export const config = {
   runtime: 'edge',
@@ -16,7 +17,7 @@ export const post: APIRoute = async ({ request, cookies }) => {
 
   // make sure authorization or md5 is allowed TODO: md5 to prevent excess calls
   if (!auth) {
-    return new Response('Authentication required', { status: 401 });
+    return resser.auth;
   }
 
   const {
@@ -24,7 +25,7 @@ export const post: APIRoute = async ({ request, cookies }) => {
   } = await supabase.auth.getUser(auth);
 
   if (!user) {
-    return new Response('Authentication required', { status: 401 });
+    return resser.auth;
   }
 
   const { usage }: { usage: number } = await request.json();
@@ -37,5 +38,5 @@ export const post: APIRoute = async ({ request, cookies }) => {
     usage,
   });
 
-  return new Response('OK');
+  return resser.ok;
 };

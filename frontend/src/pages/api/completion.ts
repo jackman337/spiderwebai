@@ -4,10 +4,11 @@ import type { ChatCompletionRequestMessage } from 'openai-edge';
 import {
   authenticateSupabaseClientFromRequest,
   createSupabaseAdminClient,
-} from '../../lib/supabase';
+} from '@/lib/supabase';
 import { validateCredits } from '@/lib/utils/check-credits';
 import { openai, type Docs, OPENAI_MODEL_DEFAULT } from '@/lib/openai';
 import { reportUsageToStripe } from '@/lib/utils/stripe/report-usage';
+import { resser } from '@/lib/server/responses';
 
 export const config = {
   runtime: 'edge',
@@ -21,7 +22,7 @@ export const post: APIRoute = async ({ request, cookies }) => {
   } = (await supabase?.auth?.getUser()) ?? { data: { user: null } };
 
   if (!user) {
-    return new Response('Authentication required', { status: 401 });
+    return resser.auth;
   }
 
   const creditsData = await validateCredits(supabase, user?.id);
@@ -138,14 +139,7 @@ export const post: APIRoute = async ({ request, cookies }) => {
     }
   }
 
-  try {
-    const stream = OpenAIStream(response);
+  const stream = OpenAIStream(response);
 
-    return new StreamingTextResponse(stream);
-  } catch (e) {
-    console.error(e);
-    return new Response(
-      `{q: 'Tell me about ${baseWebsite}.', a: 'The website has ${baseWebsite?.length} in the domain.'}`
-    );
-  }
+  return new StreamingTextResponse(stream);
 };

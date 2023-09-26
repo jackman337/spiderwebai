@@ -20,7 +20,7 @@ export const validateCredits = async (
   let hardLimit = 0;
   let approvedLimit = 0;
   let totalUsage = 0;
-  let responseMessage = 'You need to add credits first.';
+  let responseMessage = '';
 
   // check if user has valid subscription if credits are not found TODO: pass both checks to the crawler to continue
   const { data } = (await supabase
@@ -69,7 +69,7 @@ export const validateCredits = async (
       return false;
     }
 
-    return new Response(responseMessage, {
+    return new Response(responseMessage || 'You need to add credits first.', {
       status: 400,
     });
   }

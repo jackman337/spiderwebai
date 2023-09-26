@@ -4,6 +4,7 @@ import { authenticateSupabaseClientFromRequest } from '../../lib/supabase';
 import { getStripeClient } from '../../lib/stripe';
 import { CookieKeys } from '@/lib/storage';
 import { StripeSubscriptionService } from '@/service/stripe-subscription.service';
+import { resser } from '@/lib/server/responses';
 
 export const config = {
   runtime: 'edge',
@@ -24,12 +25,7 @@ export const post: APIRoute = async ({ request, redirect, cookies }) => {
   } = (await supabase?.auth?.getUser()) ?? { data: { user: null } };
 
   if (!user) {
-    return new Response(
-      cookies.has(CookieKeys.ACCESS_TOKEN)
-        ? 'Authentication required, if issues persist please sign out and re-login.'
-        : 'Authentication required.',
-      { status: 401 }
-    );
+    return resser.auth;
   }
 
   const formData = await request.formData();

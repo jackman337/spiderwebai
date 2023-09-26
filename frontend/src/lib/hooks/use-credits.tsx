@@ -1,8 +1,6 @@
-import { useEffect, useMemo, useState, type FC } from 'react';
-import { supabase } from '../../lib/supabase';
-import { formatMoney } from '../../lib/utils/format-money';
-
-interface Props {}
+import { useEffect, useMemo, useState } from 'react';
+import { supabase } from '@/lib/supabase';
+import { formatMoney } from '@/lib/utils/format-money';
 
 export const useCredits = () => {
   const [loading, setLoading] = useState(false);

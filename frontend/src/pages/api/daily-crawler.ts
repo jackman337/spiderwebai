@@ -3,6 +3,7 @@ import type { APIRoute } from 'astro';
 import { isSameDay, isSameMonth, isSameWeek } from 'date-fns';
 import { sendCrawlSQS } from '@/lib/utils/sqs-queue';
 import { validateCredits } from '@/lib/utils/check-credits';
+import { resser } from '@/lib/server/responses';
 
 export const config = {
   runtime: 'edge',
@@ -17,8 +18,7 @@ export const post: APIRoute = async ({ request }) => {
   const sharedKey = searchParams.get(import.meta.env.CRON_KEY);
 
   if (sharedKey !== import.meta.env.CRON_SECURITY) {
-    // silent fail treat as 404
-    return new Response('Not Found', { status: 404 });
+    return resser.notFound;
   }
 
   const cu = new Date();
@@ -84,5 +84,5 @@ export const post: APIRoute = async ({ request }) => {
     }
   }
 
-  return new Response('Successfully ran all scheduled', { status: 200 });
+  return resser.ok;
 };
