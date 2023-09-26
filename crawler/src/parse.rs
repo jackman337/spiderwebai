@@ -61,9 +61,9 @@ pub fn parse_sqs_event(event: serde_json::Value) -> (Vec<RequestParams>, bool) {
             serde_json::from_str(&event["body"].as_str().unwrap_or_default()).unwrap_or_default()
         };
 
-        let whitelist = dotenv::var("WHITE_LIST_URLS").unwrap_or("http://localhost:3000".into());
+        u.authorization = Some(authorization);        
 
-        u.authorization = Some(authorization);
+        let whitelist = dotenv::var("WHITE_LIST_URLS").unwrap_or("http://localhost:3000".into());
 
         (Vec::from([u]), whitelist == domain_name)
     }

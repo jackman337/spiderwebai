@@ -13,10 +13,15 @@ Spider meets AI = 🦄
 - Realtime distributed updates with [Supabase](https://supabase.io/docs/guides/realtime)
 - Integration with [Stripe Checkout](https://stripe.com/docs/payments/checkout) and the [Stripe customer portal](https://stripe.com/docs/billing/subscriptions/customer-portal)
 - Automatic syncing of pricing plans and subscription statuses via [Stripe webhooks](https://stripe.com/docs/webhooks)
+- Accessible UI components with [shadcn/ui](https://ui.shadcn.com/)
 
 ## Demo
 
 ![Dashboard example](https://user-images.githubusercontent.com/8095978/270475687-b7449430-e5fa-4ce9-ae70-81bc10180c16.png)
+
+## Architecture
+
+![Architecture diagram](./frontend/public/architecture_diagram.svg)
 
 ## Requirements
 
