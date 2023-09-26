@@ -40,7 +40,7 @@ export const UserAvatar = ({
   return (
     <Avatar className="avatar" {...props}>
       <AvatarImage src={imageSrc} alt={`${email ?? 'user'} avatar`} />
-      <AvatarFallback>{initials}</AvatarFallback>
+      <AvatarFallback className="capitalize">{initials}</AvatarFallback>
       <span className="sr-only">Avatar profile</span>
     </Avatar>
   );

@@ -87,13 +87,10 @@ const WebsiteForm: FC<Props> = ({}) => {
         });
 
         if (response.ok) {
-          // send prompt
           if (response.status === 202) {
-            const t = await response.text();
-
             return toast({
               title: 'Query did not fulfill',
-              description: t,
+              description: await response.text(),
             });
           } else {
             response = await response.json();
@@ -101,13 +98,9 @@ const WebsiteForm: FC<Props> = ({}) => {
 
           setWebsiteURL('');
         } else {
-          try {
-            onErrorEvent(
-              response?.status === 400 ? new Error(await response.text()) : new Error('API Error')
-            );
-          } catch (e) {
-            console.error(e);
-          }
+          return onErrorEvent(
+            response?.status === 400 ? new Error(await response.text()) : new Error('API Error')
+          );
         }
       } catch (e) {
         console.error(e);
@@ -149,7 +142,6 @@ const WebsiteForm: FC<Props> = ({}) => {
 
       // TODO: prep for an array of websites returned if prompt query was asked.
       const website = response?.data;
-
       const domain = parseUrl(website?.url)?.hostname;
 
       // if a valid domain was returned

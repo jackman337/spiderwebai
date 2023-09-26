@@ -1,10 +1,7 @@
 import type { APIRoute } from 'astro';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import type { ChatCompletionRequestMessage } from 'openai-edge';
-import {
-  authenticateSupabaseClientFromRequest,
-  createSupabaseAdminClient,
-} from '@/lib/supabase';
+import { authenticateSupabaseClientFromRequest, createSupabaseAdminClient } from '@/lib/supabase';
 import { validateCredits } from '@/lib/utils/check-credits';
 import { openai, type Docs, OPENAI_MODEL_DEFAULT } from '@/lib/openai';
 import { reportUsageToStripe } from '@/lib/utils/stripe/report-usage';

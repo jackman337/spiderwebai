@@ -2,8 +2,7 @@
 import { AuthDropdown } from '@/components/react/AuthDropdown';
 import { getLangFromUrl, getTranslations } from '@/i18n/utils';
 import type { ui } from '@/i18n/ui';
-import Logo from './svg/Logo.astro';
-import Banner from './Banner.astro';
+import Logo from '@/components/svg/Logo.astro';
 import { CoinsIcon } from 'lucide-react';
 
 const lang = getLangFromUrl(Astro.url);
@@ -12,7 +11,6 @@ const renderLogo = Astro.url.pathname !== '/';
 ---
 
 <header>
-	<Banner />
 	<nav class="min-h-[58px] px-4 py-2 place-content-between flex">
 		<div class="flex place-items-center gap-3 flex-1">
 			{

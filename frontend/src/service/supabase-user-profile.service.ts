@@ -11,7 +11,7 @@ export class SupabaseUserProfileService {
   }
 
   async getCustomerId(userId?: string) {
-    return await this.getField('stripe_id', userId) as Promise<string>;
+    return (await this.getField('stripe_id', userId)) as Promise<string>;
   }
 
   async getFieldBy(field: string, where: string, value: string) {

@@ -1,8 +1,5 @@
 import type { APIRoute } from 'astro';
-import {
-  authenticateSupabaseClientFromRequest,
-  createSupabaseAdminClient,
-} from '@/lib/supabase';
+import { authenticateSupabaseClientFromRequest, createSupabaseAdminClient } from '@/lib/supabase';
 import { rateLimit } from '@/lib/utils/rate-limit';
 import { resser } from '@/lib/server/responses';
 

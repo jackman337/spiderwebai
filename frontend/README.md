@@ -34,3 +34,7 @@ stripe listen --forward-to http://localhost:3000/api/stripe-webhook
 The route correspond to an [Astro API endpoint](./src/pages/api/stripe-webhook.ts). So you need to start the frontend and that's it.
 
 *note If you do not add Stripe you can manually add `approved_usage,billing_limit,billing_limit_soft` in the profiles table along with credits in the credits table to continue.*
+
+#### Create product and pricing information
+
+Your application's webhook listens for product updates on Stripe and automatically propagates them to your Supabase database. So with your webhook listener running, you can now create your product and pricing information in the [Stripe Dashboard](https://dashboard.stripe.com/test/products). Set the priceID to the env variable `STRIPE_PRICE_ID`.

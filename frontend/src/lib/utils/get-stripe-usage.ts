@@ -5,7 +5,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 // return the stripe records for customer
 export async function getUsageRecordSummaries(supabase: SupabaseClient, user_id?: string) {
   const userProfileService = new SupabaseUserProfileService(supabase);
-  let customerId = "";
+  let customerId = '';
 
   try {
     customerId = await userProfileService.getCustomerId(user_id);
