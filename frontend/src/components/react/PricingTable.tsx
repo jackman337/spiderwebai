@@ -6,7 +6,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from 'spiderwebai-components/react/components/ui/table';
 import { CheckCircle2Icon, PlusCircleIcon } from 'lucide-react';
 
 const AddonRender = ({ addon }: { addon?: boolean }) => {

@@ -1,5 +1,5 @@
 import { useState, type Dispatch, type RefObject, type SetStateAction } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import type { Website } from '@/stores/my';
 import {
   DownloadIcon,
@@ -20,11 +20,16 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
+} from 'spiderwebai-components/react/components/ui/alert-dialog';
 import { supabase } from '../../../lib/supabase';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from 'spiderwebai-components/react/components/ui/use-toast';
 import { headlessEnabled, proxyEnabled, websites } from '@/stores/my';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from 'spiderwebai-components/react/components/ui/tooltip';
 import { downloadFolder } from '@/lib/utils/download';
 import { onErrorEvent } from '../Errors';
 import {
@@ -34,12 +39,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from 'spiderwebai-components/react/components/ui/dialog';
 import { WebhookEventsForm } from '../forms/webhook-events';
 import { ScheduleEventsForm } from '../forms/schedule-events';
 import clsx from 'clsx';
-import { Switch } from '@/components/ui/switch';
-import { Label } from '@/components/ui/label';
+import { Switch } from 'spiderwebai-components/react/components/ui/switch';
+import { Label } from 'spiderwebai-components/react/components/ui/label';
 import { CrawlBudgetDialog } from '../forms/crawl-budget-section';
 import { useStore } from '@nanostores/react';
 

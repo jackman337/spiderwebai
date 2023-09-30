@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { Button } from '@/components/ui/button';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import {
   Form,
   FormControl,
@@ -11,15 +11,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { toast } from '@/components/ui/use-toast';
-import { Input } from '@/components/ui/input';
+} from 'spiderwebai-components/react/components/ui/form';
+import { toast } from 'spiderwebai-components/react/components/ui/use-toast';
+import { Input } from 'spiderwebai-components/react/components/ui/input';
 import type { Dispatch, FC, PropsWithChildren, SetStateAction } from 'react';
 import { supabase } from '@/lib/supabase';
 import { session, type Website } from '@/stores/my';
 import { useStore } from '@nanostores/react';
-import { DialogFooter } from '@/components/ui/dialog';
-import { Textarea } from '@/components/ui/textarea';
+import { DialogFooter } from 'spiderwebai-components/react/components/ui/dialog';
+import { Textarea } from 'spiderwebai-components/react/components/ui/textarea';
 
 const FormSchema = z.object({
   title: z.string().min(5, 'Title must contain at least 5 character(s)'),

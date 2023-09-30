@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from 'spiderwebai-components/react/components/ui/button';
 import { UserAuthForm } from '@/components/react/forms/user-auth-form';
 
 export const metadata = {

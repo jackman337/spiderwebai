@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { toast } from '@/components/ui/use-toast';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
+import { Label } from 'spiderwebai-components/react/components/ui/label';
+import { toast } from 'spiderwebai-components/react/components/ui/use-toast';
 import CurrencyInput from 'react-currency-input-field';
 
 interface HardLimitFormProps extends React.HTMLAttributes<HTMLDivElement> {

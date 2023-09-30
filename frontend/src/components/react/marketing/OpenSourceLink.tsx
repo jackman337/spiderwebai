@@ -1,6 +1,14 @@
 import { CalendarDays, Star } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from 'spiderwebai-components/react/components/ui/avatar';
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from 'spiderwebai-components/react/components/ui/hover-card';
 
 export const GithubLink = ({ stars }: { stars: number }) => {
   return (

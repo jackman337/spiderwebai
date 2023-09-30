@@ -11,8 +11,8 @@ import { type UseChatHelpers, useChat } from 'ai/react';
 import { onErrorEvent } from '../Errors';
 import type { Website } from '@/stores/my';
 import type { Message } from 'ai';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Button } from '@/components/ui/button';
+import { Skeleton } from 'spiderwebai-components/react/components/ui/skeleton';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 
 export type QA = { q: string; a: string; id?: string; disabled?: boolean };
 

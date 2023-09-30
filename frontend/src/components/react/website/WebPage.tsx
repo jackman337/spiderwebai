@@ -1,15 +1,15 @@
 import { useMemo, type FormEvent } from 'react';
 import { supabase } from '@/lib/supabase';
 import type { WebPage } from '@/stores/my';
-import { Button } from '@/components/ui/button';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import { ChevronDown, ClipboardCopyIcon, DownloadCloudIcon, LoaderIcon } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from 'spiderwebai-components/react/components/ui/use-toast';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from 'spiderwebai-components/react/components/ui/dropdown-menu';
 import {
   Dialog,
   DialogContent,
@@ -17,9 +17,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+} from 'spiderwebai-components/react/components/ui/dialog';
+import { Input } from 'spiderwebai-components/react/components/ui/input';
+import { Label } from 'spiderwebai-components/react/components/ui/label';
 import { DialogClose } from '@radix-ui/react-dialog';
 import { differenceInSeconds } from 'date-fns';
 import { add } from 'date-fns';

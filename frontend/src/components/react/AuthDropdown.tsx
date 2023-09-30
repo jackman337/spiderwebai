@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from 'spiderwebai-components/react/components/ui/dropdown-menu';
 import { UserAvatar } from '@/components/react/Avatar';
 import SignOut from './SignOut';
 import {
@@ -15,7 +15,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from 'spiderwebai-components/react/components/ui/dialog';
 import { WebhookEventsForm } from './forms/webhook-events';
 import { FeedbackEventsForm } from './forms/feedback-form';
 import { Auth } from '@supabase/auth-ui-react';

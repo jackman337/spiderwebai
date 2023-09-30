@@ -1,5 +1,5 @@
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Badge } from 'spiderwebai-components/react/components/ui/badge';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +12,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from 'spiderwebai-components/react/components/ui/dropdown-menu';
 import { crawlCategories } from '@/lib/data/crawl-categories';
 
 export const DropdownCrawlSelect = ({ onSelect }: { onSelect: (event: string) => void }) => {

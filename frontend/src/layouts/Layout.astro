@@ -1,11 +1,12 @@
 ---
 import '@fontsource-variable/inter';
+// import 'spiderwebai-components/react/css/tailwind.css'
 import { Analytics } from '@vercel/analytics/react';
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
-import { Toaster } from '@/components/ui/toaster';
 import { getLangFromUrl } from '@/i18n/utils';
 import { routeParseAbsolute } from '@/lib/utils/routing';
+import { Toaster } from '@/components/react/Toaster';
 
 const lang = getLangFromUrl(Astro.url);
 const twitterSite = import.meta.env.PUBLIC_TWITTER_HANDLE || 'spider-rust';

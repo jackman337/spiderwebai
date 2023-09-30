@@ -1,9 +1,9 @@
 import type { UseChatHelpers } from 'ai/react';
 
-import { Button } from '@/components/ui/button';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import { PromptForm } from '@/components/react/chat/prompt-form';
 import { ButtonScrollToBottom } from '@/components/react/chat/button-scroll-to-bottom';
-import { IconRefresh, IconStop } from '@/components/ui/icons';
+import { IconRefresh, IconStop } from 'spiderwebai-components/react/components/ui/icons';
 import { FooterText } from '@/components/react/chat/footer';
 // import { TokensUsage } from './Tokens';
 import { ArchiveIcon } from 'lucide-react';

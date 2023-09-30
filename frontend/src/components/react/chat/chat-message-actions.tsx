@@ -1,7 +1,7 @@
 import type { Message } from 'ai';
 
-import { Button } from '@/components/ui/button';
-import { IconCheck, IconCopy } from '@/components/ui/icons';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
+import { IconCheck, IconCopy } from 'spiderwebai-components/react/components/ui/icons';
 import { useCopyToClipboard } from '@/lib/hooks/use-copy-to-clipboard';
 import { cn } from '@/lib/utils';
 

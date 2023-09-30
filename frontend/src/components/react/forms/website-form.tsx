@@ -2,10 +2,10 @@ import { useStore } from '@nanostores/react';
 import { map } from 'nanostores';
 import { type FC, useState, FormEvent } from 'react';
 import { BudgetStore, headlessEnabled, proxyEnabled, session, websites } from '@/stores/my';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
+import { Label } from 'spiderwebai-components/react/components/ui/label';
 import { onErrorEvent } from '../Errors';
-import { toast } from '@/components/ui/use-toast';
+import { toast } from 'spiderwebai-components/react/components/ui/use-toast';
 import { DropdownCrawlSelect } from '../menus/crawl-select';
 
 interface Props {}

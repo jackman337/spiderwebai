@@ -4,7 +4,7 @@ import cookie from 'cookie';
 import { supabase } from '@/lib/supabase';
 import { type WebPage, session, websites, Website } from '@/stores/my';
 import { CookieKeys } from '@/lib/storage';
-import { toast } from '@/components/ui/use-toast';
+import { toast } from 'spiderwebai-components/react/components/ui/use-toast';
 import { ToastAction } from '@radix-ui/react-toast';
 import { formatDuration } from 'date-fns';
 import { expireAuthCookies } from '@/lib/utils/cookies/expire-auth';

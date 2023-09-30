@@ -3,9 +3,9 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 
 import { cn } from '@/lib/utils';
-import { CodeBlock } from '@/components/ui/codeblock';
+import { CodeBlock } from 'spiderwebai-components/react/components/ui/codeblock';
 import { MemoizedReactMarkdown } from '@/components/react/chat/markdown';
-import { IconOpenAI, IconUser } from '@/components/ui/icons';
+import { IconOpenAI, IconUser } from 'spiderwebai-components/react/components/ui/icons';
 import { ChatMessageActions } from '@/components/react/chat/chat-message-actions';
 
 export interface ChatMessageProps {

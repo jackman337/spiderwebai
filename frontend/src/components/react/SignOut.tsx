@@ -1,10 +1,7 @@
-import type { FC, SyntheticEvent } from 'react';
-import cookie from 'cookie';
+import type { FC } from 'react';
 import { supabase } from '@/lib/supabase';
 import { session, websites, websitesPagination } from '@/stores/my';
-import IfLogged from './IfLogged';
-import { CookieKeys } from '@/lib/storage';
-import { toast } from '../ui/use-toast';
+import { toast } from 'spiderwebai-components/react/components/ui/use-toast';
 import { expireAuthCookies } from '@/lib/utils/cookies/expire-auth';
 import { LogOutIcon } from 'lucide-react';
 

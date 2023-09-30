@@ -6,8 +6,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
+} from 'spiderwebai-components/react/components/ui/dialog';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import { Scale } from 'lucide-react';
 import { CrawlBudgetForm } from './crawl-budget-form';
 import { getLangFromUrl, getTranslations } from '@/i18n/utils';

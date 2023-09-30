@@ -5,7 +5,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from 'spiderwebai-components/react/components/ui/dialog';
 import { FeedbackEventsForm } from './feedback-form';
 import { useStore } from '@nanostores/react';
 import { session } from '@/stores/my';

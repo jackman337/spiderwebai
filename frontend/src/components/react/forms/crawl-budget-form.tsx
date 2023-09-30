@@ -1,10 +1,10 @@
 import { useRef, type FormEvent, type SyntheticEvent } from 'react';
 import { crawlBudget, websites } from '@/stores/my';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
+import { Input } from 'spiderwebai-components/react/components/ui/input';
 import { MinusIcon, PlusIcon } from 'lucide-react';
-import { Label } from '@/components/ui/label';
-import { toast } from '@/components/ui/use-toast';
+import { Label } from 'spiderwebai-components/react/components/ui/label';
+import { toast } from 'spiderwebai-components/react/components/ui/use-toast';
 
 const BudgetInput = ({
   index,

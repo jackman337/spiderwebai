@@ -1,10 +1,10 @@
 import { useCallback, useImperativeHandle, forwardRef, useContext } from 'react';
 import type { PagesStore } from '@/stores/my';
-import { Button } from '@/components/ui/button';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import { LoaderIcon } from 'lucide-react';
 import { Virtuoso } from 'react-virtuoso';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Input } from 'spiderwebai-components/react/components/ui/input';
+import { Label } from 'spiderwebai-components/react/components/ui/label';
 import { PagesContext } from './providers/pages';
 import { Page } from './WebPage';
 

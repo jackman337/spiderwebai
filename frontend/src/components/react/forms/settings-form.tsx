@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
+import { Label } from 'spiderwebai-components/react/components/ui/label';
+import { Switch } from 'spiderwebai-components/react/components/ui/switch';
 import { useSession } from '@/lib/hooks/use-session';
 import { proxyEnabled, headlessEnabled } from '@/stores/my';
 import { useStore } from '@nanostores/react';
@@ -13,9 +13,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from 'spiderwebai-components/react/components/ui/dialog';
 import { WebhookEventsForm } from './webhook-events';
-import { Button } from '@/components/ui/button';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import { LucideMonitorDot, WebhookIcon } from 'lucide-react';
 import { CrawlBudgetForm } from './crawl-budget-form';
 import { CrawlBudgetSection } from './crawl-budget-section';

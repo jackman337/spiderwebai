@@ -3,7 +3,12 @@ import type { Website } from '@/stores/my';
 import { Pages } from './WebPages';
 import { FlaskConicalOffIcon } from 'lucide-react';
 import Chat from '@/components/react/chat/Chat';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from 'spiderwebai-components/react/components/ui/tooltip';
 import { formatDistanceStrict } from 'date-fns';
 import { PagesProvider } from './providers/pages';
 import { WebPageResource } from './WebPageResource';

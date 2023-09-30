@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import type { Message } from 'ai';
-import { Separator } from '@/components/ui/separator';
+import { Separator } from 'spiderwebai-components/react/components/ui/separator';
 
 const ChatMessage = lazy(() => import('./chat-message'));
 

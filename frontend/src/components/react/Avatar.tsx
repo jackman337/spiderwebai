@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from 'spiderwebai-components/react/components/ui/avatar';
 import type { AvatarProps } from '@radix-ui/react-avatar';
 
 const getGravatarURL = async (email?: string) => {

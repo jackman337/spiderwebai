@@ -2,7 +2,7 @@ import { useState, createContext, type SyntheticEvent, FC, PropsWithChildren } f
 import { useStore } from '@nanostores/react';
 import { supabase } from '@/lib/supabase';
 import { pagePaginationLimit, websites, type PagesStore, type WebPage } from '@/stores/my';
-import { toast } from '@/components/ui/use-toast';
+import { toast } from 'spiderwebai-components/react/components/ui/use-toast';
 
 type PagesProps = {
   totalPages: number;

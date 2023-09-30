@@ -1,7 +1,7 @@
 import { useState, useMemo, lazy } from 'react';
-import { Label } from '@/components/ui/label';
+import { Label } from 'spiderwebai-components/react/components/ui/label';
 import { formatMoney } from '@/lib/utils/format-money';
-import { Button } from '@/components/ui/button';
+import { Button } from 'spiderwebai-components/react/components/ui/button';
 import { useStore } from '@nanostores/react';
 import { session } from '@/stores/my';
 import CurrencyInput from 'react-currency-input-field';

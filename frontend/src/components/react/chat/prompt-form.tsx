@@ -2,9 +2,14 @@ import type { UseChatHelpers } from 'ai/react';
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
 
-import { Button, buttonVariants } from '@/components/ui/button';
-import { IconArrowElbow, IconPlus } from '@/components/ui/icons';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Button, buttonVariants } from 'spiderwebai-components/react/components/ui/button';
+import { IconArrowElbow, IconPlus } from 'spiderwebai-components/react/components/ui/icons';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from 'spiderwebai-components/react/components/ui/tooltip';
 import { useEnterSubmit } from '@/lib/hooks/use-enter-submit';
 import { cn } from '@/lib/utils';
 
